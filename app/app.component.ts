@@ -16,6 +16,7 @@ export class AppComponent {
     login:boolean=false;
     homeSelected = true;
     simulatorSelected = false;
+    dashboardSelected = false;
     
     
     
@@ -24,12 +25,20 @@ export class AppComponent {
     markHomeSelected(){
     this.homeSelected = true;
     this.simulatorSelected = false;
+    this.dashboardSelected = false;
     }
     
     markSimulatorSelected(){
     this.homeSelected = false;
     this.simulatorSelected = true;
+    this.dashboardSelected = false;
     }    
+    
+    markDashboardSelected(){
+    this.homeSelected = false;
+    this.simulatorSelected = false;
+    this.dashboardSelected = true;
+    }      
     
     constructor(private authService: AuthenticationService,private gauthService: GAuthenticationService){
         console.log("constructor!");
