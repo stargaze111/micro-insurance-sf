@@ -14,9 +14,22 @@ import {GAuthenticationService} from './account/gaccount.service';
 export class AppComponent {
     pageTitle: string = 'SMS Insurance';
     login:boolean=false;
+    homeSelected = true;
+    simulatorSelected = false;
+    
+    
+    
     public isCollapsed: boolean = true;
     
+    markHomeSelected(){
+    this.homeSelected = true;
+    this.simulatorSelected = false;
+    }
     
+    markSimulatorSelected(){
+    this.homeSelected = false;
+    this.simulatorSelected = true;
+    }    
     
     constructor(private authService: AuthenticationService,private gauthService: GAuthenticationService){
         console.log("constructor!");
