@@ -47,7 +47,7 @@ export class SimulatorRandomQuoteComponent{
             this.getRandom(this.companies),
             this.getRandom(this.firstNames),
             this.getRandom(this.lastNames),
-            this.getRandom(this.emails),
+            this.getRandom(this.emails)+''+getRandomNumber(),
             this.getRandom(this.mobiles)
             );
 
@@ -61,7 +61,7 @@ export class SimulatorRandomQuoteComponent{
             this.getRandom(this.companies),
             this.getRandom(this.firstNames),
             this.getRandom(this.lastNames),
-            this.getRandom(this.emails),
+            this.getRandom(this.emails)+''+getRandomNumber(),
             this.getRandom(this.mobiles)            
             );
     }
@@ -69,5 +69,10 @@ export class SimulatorRandomQuoteComponent{
     public getRandom(arrayObject:string[]){
         return  arrayObject[Math.floor(Math.random()*arrayObject.length)];
 
+    }
+    
+    public getRandomNumber(){
+            return  Math.floor(Math.random()*6);
+    
     }
 }

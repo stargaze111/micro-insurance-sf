@@ -12,14 +12,7 @@
                         <a [routerLink]="['/welcome']"><img class="" src="app/assets/images/logo-small.png" height=50px /></a> </div>
                     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-8"   aria-expanded="false" style="height: 0.666667px;">
                         <ul class="nav navbar-nav">
-                        <li><a [routerLink]="['/getquote']">Get Insurance</a></li>
-                        <li><a [routerLink]="['/simulator']">Simulator</a></li>
-                        <li *ngIf="isLoggedIn()"><a [routerLink]="['/dashboard']">Summary</a></li>
-                        <li *ngIf="isLoggedIn()"><a [routerLink]="['/analytics']">Analytics</a></li>
-                        <li *ngIf="isLoggedIn()"><a (click)="submitLogout()">Logout</a></li>
-                        <li *ngIf="!isLoggedIn()"><a [routerLink]="['/register']">Register</a></li>
-                        <li *ngIf="!isLoggedIn()"><a [routerLink]="['/login']">Login</a></li>
-                        <li *ngIf="!isLoggedIn()"><a [routerLink]="['/glogin']">Google Login</a></li>
+                        <li><a [routerLink]="['/simulator']">Microinsurance Simulator</a></li>
                         </ul>
                     </div>
                 </div>
