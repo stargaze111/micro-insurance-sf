@@ -1,0 +1,164 @@
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{pageTitle}} </h3>
+    </div>--> 
+<div class="container" id = "mainsection">
+
+<ul class="nav nav-tabs nav-justified">
+    <li role="presentation" [class.active]='tab=="types"'> <a (click)='switchTab("types")'>Summary by Insurance Types </a></li>
+    <li role="presentation" [class.active]='tab=="companies"'><a (click)='switchTab("companies")'>Summary by Companies </a></li>
+    <li role="presentation" [class.active]='tab=="list"'><a (click)='switchTab("list")'>Recent Transactions</a></li>
+</ul>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div id="loadingBusy" *ngIf='busyLoading'>
+            <img class="" src="app/assets/images/loader.gif">
+        </div>
+
+        <div class='table-responsive' *ngIf='tab=="types"'>
+            <table class='table' *ngIf='insuranceTypeSummeries && insuranceTypeSummeries.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            InsuranceType
+                        </th>
+                        <th>Quotes </th>
+                        <th>Converted Policies </th>
+                        <th>Total Quoted Amount</th>
+                        <th>Revenue</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let record of insuranceTypeSummeries  '>
+
+                        <td> {{record.name}}</td>
+                        <td> {{record.quotesCount}}</td>
+                        <td> {{record.policiesCount}}</td>
+                        <td>$ {{record.totalQuotesAmount}}</td>
+                        <td>$ {{record.totalPoliciesAmount}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <br/>
+
+            <br/>
+
+            <div *ngFor='let record of insuranceTypeSummeries '>
+                <div class="col-sm-4"> <span>{{record.name}}  </span>                    </div>
+                <div id="statBar" class="progress col-sm-8">
+                    <div class="progress-bar progress-bar-success" *ngIf='record.policiesCount/record.quotesCount*100>=66' [style.width.%]="record.policiesCount/record.quotesCount*100">
+                        <div>{{ record.policiesCount/record.quotesCount*100 | number : '1.1-1' }} % Conversion</div>
+                    </div>
+                    <div class="progress-bar progress-bar-warning progress-bar-striped" *ngIf='record.policiesCount/record.quotesCount*100 <66 && record.policiesCount/record.quotesCount*100 >=33'
+                        [style.width.%]="record.policiesCount/record.quotesCount*100">
+                        <div>{{ record.policiesCount/record.quotesCount*100 | number : '1.1-1' }} % Conversion</div>
+                    </div>
+                    <div class="progress-bar progress-bar-danger" *ngIf='record.policiesCount/record.quotesCount*100 <33' [style.width.%]="record.policiesCount/record.quotesCount*100 ">
+                        <div>{{ record.policiesCount/record.quotesCount*100 | number : '1.1-1' }} % Conversion</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class='table-responsive' *ngIf='tab=="companies"'>
+            <table class='table' *ngIf='companiesSummeries && companiesSummeries.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            Company
+                        </th>
+                        <th>Quotes </th>
+                        <th>Converted Policies </th>
+                        <th>Total Quote Amount</th>
+                        <th>Revenues</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let record of companiesSummeries  '>
+
+                        <td> {{record.name}}</td>
+                        <td> {{record.quotesCount}}</td>
+                        <td> {{record.policiesCount}}</td>
+                        <td>$ {{record.totalQuotesAmount}}</td>
+                        <td>$ {{record.totalPoliciesAmount}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <br/><br/>
+
+            <div *ngFor='let record of companiesSummeries '>
+                <div class="col-sm-4"> <span>{{record.name}}  </span>                    </div>
+                <div id="statBar" class="progress col-sm-6">
+                    <div class="progress-bar progress-bar-success" *ngIf='record.policiesCount/record.quotesCount*100>=66' [style.width.%]="record.policiesCount/record.quotesCount*100">
+                        <div>{{ record.policiesCount/record.quotesCount*100 | number : '1.1-1' }} % Conversion</div>
+                    </div>
+                    <div class="progress-bar progress-bar-warning progress-bar-striped" *ngIf='record.policiesCount/record.quotesCount*100 <66 && record.policiesCount/record.quotesCount*100 >=33'
+                        [style.width.%]="record.policiesCount/record.quotesCount*100">
+                        <div>{{ record.policiesCount/record.quotesCount*100 | number : '1.1-1' }} % Conversion</div>
+                    </div>
+                    <div class="progress-bar progress-bar-danger" *ngIf='record.policiesCount/record.quotesCount*100 <33' [style.width.%]="record.policiesCount/record.quotesCount*100 ">
+                        <div>{{ record.policiesCount/record.quotesCount*100 | number : '1.1-1' }} % Conversion</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Table for Insurance type-->
+        <div class='table-responsive' *ngIf='tab=="list"'>
+
+            <!--adding the filter box-->
+
+            <div class='row'>
+                <br/>
+                <div class='col-md-2'>Filter:</div>
+                <div class='col-md-3'>
+                    <input type='text' class="form-control" [(ngModel)]='companyFilter' placeholder="by company name" />
+
+                </div>
+                <div class='col-md-3'>
+                    <input type='text' class="form-control" [(ngModel)]='typeFilter' placeholder="by insurance type" />
+
+                 </div>
+                    <div class='col-md-12'> <br/>
+
+                </div> 
+               
+            </div>
+            <table class='table' *ngIf='transactions && transactions.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            InsuranceType
+                        </th>
+                        <th>Qoute Id </th>
+                        <th>Policy Id </th>
+                        <th>Amount</th>
+                        <th>Create Date</th>
+                        <th>Company</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let record of transactions | transactionsCompanyFilter : companyFilter | transactionsTypeFilter : typeFilter  '>
+
+                        <td> {{record.insuranceType}}</td>
+                        <td> {{record.quoteId}}</td>
+                        <td> {{record.policyId}}</td>
+                        <td>$ {{record.quoteAmount}}</td>
+                        <td>{{record.createdDate}}</td>
+                        <td>{{record.company}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+</div>

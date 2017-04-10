@@ -1,0 +1,364 @@
+<!-- Bootstrap Core Css -->
+
+<!-- Bootstrap Core Css -->
+<link href="../../node_modules/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<!-- Waves Effect Css -->
+<link href="../../node_modules/adminbsb-materialdesign/plugins/node-waves/waves.css" rel="stylesheet" />
+
+
+<!-- Animation Css -->
+<link href="../../node_modules/adminbsb-materialdesign/plugins/animate-css/animate.css" rel="stylesheet" />
+
+<!-- Morris Chart Css-->
+<link href="../../node_modules/adminbsb-materialdesign/plugins/morrisjs/morris.css" rel="stylesheet" />
+
+<!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+<link href="../../node_modules/adminbsb-materialdesign/css/themes/all-themes.css" rel="stylesheet" />
+
+<!-- Custom Css -->
+<link href="../../node_modules/adminbsb-materialdesign/css/style.css" rel="stylesheet">
+
+<script src="../../node_modules/moment/moment.js"></script>
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/jquery/jquery.min.js"></script>
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.js"></script>
+
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/node-waves/waves.js"></script>
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/jquery-countto/jquery.countTo.js"></script>
+
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/raphael/raphael.min.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/plugins/morrisjs/morris.js"></script>
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/plugins/chartjs/Chart.bundle.js"></script>
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.resize.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.pie.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.categories.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.time.js"></script>
+
+
+<script src="../../node_modules/adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+<script src="../../node_modules/adminbsb-materialdesign/js/admin.js"></script>
+<!--
+    <script src="../../node_modules/adminbsb-materialdesign/js/pages/index.js"></script>
+     <script src="../../node_modules/adminbsb-materialdesign/js/pages/forms/basic-form-elements.js"></script>
+    -->
+
+<script src="../../node_modules/adminbsb-materialdesign/js/demo.js"></script>
+
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<!-- #END# Overlay For Sidebars -->
+<!-- #END# Search Bar -->
+<!-- Top Bar -->
+<!--<nav class="navbar navbar-default" style="background-color: #ff8080">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <span class="navbar-brand"  style="color:white">ANALYTICS DASHBOARD</span>
+            </div>
+        </div>
+    </nav>-->
+<!-- #Top Bar -->
+<section style="background-color: #F8F8F8;" id="sidebarsection">
+  <!-- Left Sidebar -->
+  <aside id="leftsidebar" class="sidebar" style="background-color: #F8F8F8;">
+    <!-- Menu -->
+    <div class="menu">
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;">
+        <ul class="list" style=" overflow: hidden; width: auto;">
+          
+          <li>
+            <a id="dashboard_menu_a" href="javascript:void(0);" class="menu-toggle waves-effect waves-block" (click)="toggleDashboardMenu(this)">
+              <i class="material-icons">dashboard</i>
+              <span>DASHBOARD</span>
+            </a>
+            <ul id="dashboard_menu" class="ml-menu">
+              <li id="dashboard0" (click)="selectChartType(0)">
+                <a href="javascript:void(0);">
+                  <i class="material-icons">trending_up</i>
+                  <a href="javascript:void(0);" class="font-12">MAIN</a>
+                </a>
+              </li>
+              <li id="dashboard1" (click)="selectChartType(1)">
+                <a id="history_menu_a" href="javascript:void(0);" class="menu-toggle waves-effect waves-block" (click)="toggleHistoryMenu(this)">
+                  <i class="material-icons">history</i>
+                  <a href="javascript:void(0);" class="font-12">HISTORY</a>
+                </a>
+                <ul id="history_menu" class="ml-menu">
+                  <li *ngFor="let search_option of search_options let i=index" id="history{{i}}" (click)="selectSearchOption(search_option.id)">
+                    <a href="javascript:void(0);" class="font-12">{{ search_option.name.toUpperCase() }}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a id="insurance_menu_a" href="javascript:void(0);" class="menu-toggle waves-effect waves-block" (click)="toggleInsuranceMenu(this)">
+              <i class="material-icons">
+                                verified_user
+                                </i>
+              <span>INSURANCE</span>
+            </a>
+            <ul id="insurance_menu" class="ml-menu">
+              <li *ngFor="let insurance_type of insurance_types let i=index" id="insurance{{i}}" (click)="selectInsuranceType(insurance_type.id)">
+                <a href="javascript:void(0);" class="font-12">{{ insurance_type.name.toUpperCase() }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a id="company_menu_a" href="javascript:void(0);" class="menu-toggle waves-effect waves-block" (click)="toggleCompanyMenu(this)">
+              <i class="material-icons">
+                                business
+                                </i>
+              <span>COMPANY</span>
+            </a>
+            <ul id="company_menu" class="ml-menu">
+              <li *ngFor="let company_type of company_types let i=index" id="company{{i}}" (click)="selectCompanyType(company_type.id); $event.style.background-color='blue';">
+                <a href="javascript:void(0);" class="font-12">{{ company_type.name.toUpperCase() }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a id="search_menu_a" href="javascript:void(0);" class="menu-toggle waves-effect waves-block" (click)="toggleSearchMenu(this)">
+              <i class="material-icons">
+                                search
+                                </i>
+              <span>SEARCH</span>
+            </a>
+            <ul id="search_menu" class="ml-menu">
+              <li>
+                <div class="pull-right col-xs-10 p-t-25">
+                  <input type="text"  date-format="MM/DD/YYYY HH:mm" parse-format="YYYY-MM-DD HH:mm:ss" class="datetimepicker form-control"
+                    name="fromDate" placeholder="From Date/Time" required="" autofocus="" aria-required="true" [(ngModel)]='selectedFromTime'>
+                </div>
+              </li>
+              <li>
+                <div class="pull-right col-xs-10 p-t-25">
+                  <input type="text" date-format="MM/DD/YYYY HH:mm" parse-format="YYYY-MM-DD HH:mm:ss" class="datetimepicker form-control"
+                    name="toDate" placeholder="To Date/Time" required="" autofocus="" aria-required="true" [(ngModel)]='selectedToTime'
+                    data-dtp="dtp_waiUo">
+                </div>
+              </li>
+              <li>
+                <div class="pull-right col-xs-10 p-t-25">
+                  <input type="text" class="form-control" name="exe_id" placeholder="Report Id" required="" autofocus="" aria-required="true"
+                    [(ngModel)]='exe_id'>
+                </div>
+              </li>
+
+              <li>
+                <div class="pull-right col-xs-5 p-t-25">
+                  <button class="btn btn-block bg-cyan waves-effect" type="submit" (click)="triggerSearch()">SEARCH</button>
+                </div>
+
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="pull-right col-xs-5 p-t-25">
+              <button class="btn btn-block bg-cyan waves-effect" type="submit" (click)="reset_clicked()">RESET</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- #Menu -->
+    <!-- Footer -->
+  </aside>
+  <!-- #END# Left Sidebar -->
+</section>
+<section class="content" id="mainsection">
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="block-header">
+        <h2 class="pull-left"><b>{{chart_types[selectedChartId].name.toUpperCase()}} DASHBOARD</b></h2>
+      </div>
+      <div class="container-fluid pull-right">
+        <div class="pull-right switch panel-switch-btn" [hidden]="selectedChartId==1||dateSearch==true">
+          <span class="m-r-10 font-13">REAL TIME</span>
+          <label>OFF<input type="checkbox" id="realtime" [checked]="live" (click)="selectLive()"><span class="lever switch-col-cyan"></span>ON</label>
+        </div>
+        <div [hidden]="selectedChartId==0">
+          <span class="m-r-10 font-12">&nbsp;</span>
+          <label>&nbsp;</label>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid pull-left">
+      <div class="block-header">
+        <span id="refreshTime" class="pull-left m-r-10 font-10"></span>
+        <span class="pull-left m-r-10 font-10" *ngIf="exe_id!=null">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{exe_id.toUpperCase()}}</i></span>
+        <span class="pull-left m-r-10 font-10" *ngIf="selectedFromTime!=null && selectedToTime!=null">&nbsp;&nbsp;<i>{{selectedFromTime}}</i></span>
+        <span class="pull-left m-r-10 font-10" *ngIf="selectedToTime!=null">&nbsp;<i>TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{selectedToTime}}</i></span>
+        <span class="pull-left m-r-10 font-10" *ngIf="selectedOptionId>0 && selectedChartId>0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{search_options[selectedOptionId].name.toUpperCase()}}</i></span>
+        <span class="pull-left m-r-10 font-10" *ngIf="selectedCompanyId>0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{company_types[selectedCompanyId].name.toUpperCase()}}</i></span>
+        <span class="pull-left m-r-10 font-10" *ngIf="selectedInsuranceId>0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{insurance_types[selectedInsuranceId].name.toUpperCase()}}</i></span>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="block-header">
+      </div>
+      <div>
+        <span class="m-r-10 font-12">&nbsp;</span>
+        <label>&nbsp;</label>
+      </div>
+    </div>
+    <!-- Widgets -->
+    <div class="row clearfix">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box bg-pink hover-expand-effect">
+          <div class="icon">
+            <i class="material-icons">attach_money</i>
+          </div>
+          <div class="content">
+            <div class="text">REVENUE</div>
+            <div *ngIf="selectedChartId==0" class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{grandTotalRevenue | number : fractionSize}}</div>
+            <div *ngIf="selectedChartId==1" class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{totalPolicyAmount | number : fractionSize}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box bg-light-green hover-expand-effect">
+          <div class="icon">
+            <i class="material-icons">forum</i>
+          </div>
+          <div class="content">
+            <div class="text">QUOTES</div>
+            <div *ngIf="selectedChartId==0" class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20">{{grandTotalQuotes | number : fractionSize}}</div>
+            <div *ngIf="selectedChartId==1" class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20">{{totalQuotes | number : fractionSize}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box bg-cyan hover-expand-effect">
+          <div class="icon">
+            <i class="material-icons">verified_user</i>
+          </div>
+          <div class="content">
+            <div class="text">POLICIES</div>
+            <div *ngIf="selectedChartId==0" class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">{{grandTotalPolicies | number : fractionSize}}</div>
+            <div *ngIf="selectedChartId==1" class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">{{totalPolicies | number : fractionSize}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box bg-orange hover-expand-effect">
+          <div class="icon">
+            <i class="material-icons">pie_chart</i>
+          </div>
+          <div class="content" [hidden]="selectedChartId==1">
+            <div class="text">CONVERSIONS</div>
+            <div *ngIf="selectedChartId==0" class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20">{{grandTotalConversion}}</div>
+            <div *ngIf="selectedChartId==1" class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20">{{totalConversion}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #END# Widgets -->
+    <!-- CPU Usage -->
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header bg-pink hover-expand-effect content">
+            <div class="content text">TRANSACTIONS</div>
+          </div>
+          <div class="body" style="background-color: #F8F8F8">
+            <div id="line_chart" class="dashboard-flot-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #END# CPU Usage -->
+    <div class="row clearfix">
+      <!-- Task Info -->
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header bg-pink hover-expand-effect content">
+            <div class="content text">COMPANY / REVENUE</div>
+            <ul class="header-dropdown m-r--5">
+            </ul>
+          </div>
+          <div class="body" [hidden]="grandTotalQuotes<=0 || selectedChartId==1" style="background-color: #F8F8F8">
+            <div id="company_rev_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+          <div class="body" [hidden]="(totalQuotes<=0 || selectedChartId==0 )" style="background-color: #F8F8F8">
+            <div id="filtered_company_rev_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- #END# Latest Social Trends -->
+      <!-- Answered Tickets -->
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header bg-pink hover-expand-effect content">
+            <div class="content text">INSURANCE / REVENUE</div>
+            <ul class="header-dropdown m-r--5">
+            </ul>
+          </div>
+          <div class="body" [hidden]="grandTotalQuotes<=0 || selectedChartId==1" style="background-color: #F8F8F8">
+            <div id="ins_rev_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+          <div class="body" [hidden]="(totalQuotes<=0 || selectedChartId==0)" style="background-color: #F8F8F8">
+            <div id="filtered_ins_rev_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Answered Tickets -->
+    </div>
+
+    <div class="row clearfix">
+      <!-- #END# Task Info -->
+      <!-- Task Info -->
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header bg-pink hover-expand-effect content">
+            <div class="content text">COMPANY / POLICIES</div>
+            <ul class="header-dropdown m-r--5">
+            </ul>
+          </div>
+          <div class="body" [hidden]="grandTotalQuotes<=0 || selectedChartId==1" style="background-color: #F8F8F8">
+            <div id="company_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+          <div class="body" [hidden]="(totalQuotes<=0 || selectedChartId==0)" style="background-color: #F8F8F8">
+            <div id="filtered_company_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Task Info -->
+      <!-- Browser Usage -->
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header bg-pink hover-expand-effect content">
+            <div class="content text">INSURANCE / POLICIES</div>
+            <ul class="header-dropdown m-r--5">
+            </ul>
+          </div>
+          <div class="body" [hidden]="grandTotalQuotes<=0 || selectedChartId==1" style="background-color: #F8F8F8">
+            <div id="ins_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+          <div class="body" [hidden]="(totalQuotes<=0 || selectedChartId==0)" style="background-color: #F8F8F8">
+            <div id="filtered_ins_pie_chart" class="dashboard-donut-chart1"></div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Browser Usage -->
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+li {
+    font-size: large;
+}
+
+div.panel-heading {
+   font-size: x-large; 
+}
+
+.mainWarper{
+    background: url(assets/images/light_blue_back.png?t=1476953134856) no-repeat top center / 100%;
+    min-height: 1000px;
+    
+}
+.mainWarper .navbar{
+        border-bottom: 4px solid #00b5ef;
+}
+
+#top-nav-bar { 
+position: fixed;
+top: 0;
+z-index:1;
+width: 100%;
+}
+
+#mainsection{
+  padding-top: 80px;
+}

@@ -1,0 +1,24 @@
+#loadingBusy{
+    
+    margin:30px auto;
+    width: 125px;
+
+} 
+
+#statBar{
+ padding-left: 0px;
+}
+
+.container  .nav-tabs li{
+    background-color: #ffffff;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+
+.container  .nav-tabs .active{
+    background-color: #ffffff;
+    opacity: 1;
+    
+}
+

@@ -1,0 +1,67 @@
+<div class="container" id = "mainsection">
+
+<div   class="panel panel-default">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Register Account </h3>
+  </div>
+
+  <div *ngIf="error==''&&isAuthenticated" class="panel-body">
+        <p>You registration has been successful!</p>
+  </div>
+
+  <div *ngIf="!isLoggedIn()" class="panel-body">
+    <form  class="form-horizontal">
+
+    <div class="form-group">
+      <div class="col-sm-2"></div>
+     <div class=" col-sm-8 alert alert-danger" *ngIf='error!=""&&error!=null' role="alert">{{error}}</div>
+         <div class="col-sm-2"></div>
+    </div>
+
+       <div class="form-group">
+        <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="registerUser.firstName" name="firstName" class="form-control" id="firstName">
+        </div>
+      </div>
+
+	  <div class="form-group">
+		  <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+		  <div class="col-sm-10">
+			<input type="text" [(ngModel)]="registerUser.lastName" name="lastName" class="form-control" id="lastName">
+		  </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputUSername" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="registerUser.username" name="username" class="form-control" id="username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" [(ngModel)]="registerUser.password" name="password" class="form-control" id="password">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputCategory" class="col-sm-2 control-label">User Role</label>
+        <div class="col-sm-10">
+          <input type="category" [(ngModel)]="registerUser.category" name="category" class="form-control" id="category">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputModel" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+          <button type="button" (click) ="submitRegistration(form)"  class="btn btn-success">Register</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { AnalyticsComponent } from './analytics.component';
+// import * as _ from 'underscore';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { Ng2GoogleChartModule } from 'ng2-googlechart';
+import { DatepickerModule } from 'angular2-material-datepicker';
+import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
+import { SearchInsuranceTransactionsService } from '../services/transactions.service';
+
+@NgModule({
+    declarations: [
+        AnalyticsComponent,
+
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        JsonpModule,
+        DatepickerModule,
+        Ng2GoogleChartModule,
+        Ng2DatetimePickerModule,
+        RouterModule.forChild(
+            [
+                { path: 'analytics', component: AnalyticsComponent },
+            ]
+        ),
+        SharedModule
+    ],
+    providers: [
+      SearchInsuranceTransactionsService
+  ],
+
+})
+export class AnalyticsModule {
+
+}

@@ -1,0 +1,16 @@
+"use strict";
+var LoginUserModel = (function () {
+    function LoginUserModel(username, password, passcode) {
+        this.username = username;
+        this.password = password;
+        this.passcode = passcode;
+    }
+    return LoginUserModel;
+}());
+exports.LoginUserModel = LoginUserModel;
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
+//# sourceMappingURL=login.user.model.js.map

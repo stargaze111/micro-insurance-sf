@@ -1,0 +1,178 @@
+<div class="container" id="mainsection">
+
+  <div class="panel panel-default">
+
+
+    <div *ngIf="stage==1" class="panel-heading">
+      <h3 class="panel-title">Get Quote</h3>
+    </div>
+    <div *ngIf="stage==1" class="panel-body">
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" [style.width.%]="stage/3*100">
+          <div *ngIf="stage<3">step {{stage}}</div>
+          <div *ngIf="stage==3">Complete</div>
+
+        </div>
+      </div>
+
+      <form (ngSubmit)="submitQoute(form)" class="form-horizontal">
+
+
+        <div class="form-group">
+          <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.firstName" name="firstName" class="form-control" id="firstName" placeholder="TesterFN">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.lastName" name="lastName" class="form-control" id="lastName" placeholder="TesterLN">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputGender" class="col-sm-2 control-label">Gender</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.gender" name="gender" class="form-control" id="gender" placeholder="Male">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputAge" class="col-sm-2 control-label">Age</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.age" name="age" class="form-control" id="age" placeholder="21">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.email" name="email" class="form-control" id="email" placeholder="tester@tester.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputMobile" class="col-sm-2 control-label">Mobile Phone</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.mobile" name="mobile" class="form-control" id="mobile" placeholder="0403048805">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputFrom" class="col-sm-2 control-label">From Destination</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.fromDestination" name="fromDestination" class="form-control" id="fromDestination" placeholder="21 Regent St, Redfern">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-2 control-label">To Destination</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.toDestination" name="toDestination" class="form-control" id="toDestination" placeholder="3 Martin Place, CBD, 2000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-2 control-label">Company</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.company" name="company" class="form-control" id="toDestination">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-2 control-label">Insurance Type</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.insuranceType" name="tnsuranceType" class="form-control" id="toDestination">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputModel" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-success">Get Quotes</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+
+
+
+
+    <div *ngIf="stage==2" class="panel-heading">
+      <h3 class="panel-title">Your policy </h3>
+    </div>
+    <div *ngIf="stage==2" class="panel-body">
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" [style.width.%]="stage/3*100">
+          <div *ngIf="stage<3">step {{stage}}</div>
+          <div *ngIf="stage==3">Complete</div>
+        </div>
+      </div>
+
+      <h4> The policy is now ready for you to purchase:</h4><br/><br/>
+      <form (ngSubmit)="submitPolicy(form)" class="form-horizontal">
+
+
+        <div class="form-group">
+          <label for="policyAmount" class="col-sm-2 control-label">Quote Amount</label>
+          <!--<label for="policyAmount" class="col-sm-10 ">${{policyAmount}}</label>-->
+          <input class="col-sm-10" type="text" placeholder="$ {{policyAmount}}" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="inputFirstName" class="col-sm-2 control-label">Quote Id</label>
+          <input class="col-sm-10" type="text" placeholder="{{policyModel.quoteId}}" readonly>
+
+        </div>
+
+        <div class="form-group">
+          <label for="inputModel" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+
+            <button type="button" (click)='backToQoute()' class="btn btn-success"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp; &nbsp; Go Back</button>
+            <button type="submit" class="btn btn-success">Purchase Policy &nbsp; &nbsp; <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+
+
+    <div *ngIf="stage==3" class="panel-heading">
+      <h3 class="panel-title">Thank you! </h3>
+    </div>
+    <div *ngIf="stage==3" class="panel-body">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" [style.width.%]="stage/3*100">
+          <div *ngIf="stage<3">step {{stage}}</div>
+          <div *ngIf="stage==3">Complete</div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <p>Congratulations! Your are now covered with our premium insurance policy. </p>
+        <br/>
+        <p> policy referrence is: </p>
+        <strong>{{policyId}}</strong>
+        <br/>
+        <br/>
+        <br/>
+
+        <p>Do you want to take out a new quote? </p>
+        <button type="submit" class="btn btn-success" (click)="createNew()">New Quote &nbsp; <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></button>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
