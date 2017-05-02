@@ -24,7 +24,7 @@ export class InsuranceGetQouteComponent{
      policyAmount: string; // for stage 2 
      policyId: string; //for stage 3
  
-    private baseApiUrl = 'https://smsapigee-test.apigee.net/v6/insurance/';
+    private baseApiUrl = 'https://smsapigee-test.apigee.net/v7/insurance/';
     private createPolicyPath = 'policy/create';
     private createQuotePath = 'quote/create';
 

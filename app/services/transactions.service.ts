@@ -16,7 +16,7 @@ export class SearchInsuranceTransactionsService {
      private client_id = 'UMPB1q9XBKudOD58cyVYACOp22a5OjgY';
      
      // private instance variable to hold base url
-     private transactionsUrl = 'https://smsapigee-test.apigee.net/v6/insurance/transactions/search'; 
+     private transactionsUrl = 'https://smsapigee-test.apigee.net/v7/insurance/transactions/search'; 
 
      searchTransactions(fromMilliseconds,toMilliseconds,selectedInsurance,selectedCompany, exeId) : Observable<InsuranceTransactionsResponse> {
           

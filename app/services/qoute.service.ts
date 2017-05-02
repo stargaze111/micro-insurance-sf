@@ -18,7 +18,7 @@ import {IReturnTransactionModel} from '../models/return-transaction.model'
 export class QouteService{
 
 
-    private baseApiUrl = 'https://smsapigee-test.apigee.net/v6/insurance/';
+    private baseApiUrl = 'https://smsapigee-test.apigee.net/v7/insurance/';
     constructor(private _http:Http){
 
 

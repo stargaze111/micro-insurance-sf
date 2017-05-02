@@ -26,7 +26,7 @@ export class SimulatorComponent {
     summeryModel: PostSummeryModel = new PostSummeryModel('Car Insurance', false, 20);
     returnSummeryModel: ReturnSummeryModel = new ReturnSummeryModel('', '', '');
     clientId: string = 'UMPB1q9XBKudOD58cyVYACOp22a5OjgY';
-    private baseApiUrl = 'https://smsapigee-test.apigee.net/v6/insurance/';
+    private baseApiUrl = 'https://smsapigee-test.apigee.net/v7/insurance/';
     private createPolicyPath = 'policy/create';
     private createQuotePath = 'quote/create';
 

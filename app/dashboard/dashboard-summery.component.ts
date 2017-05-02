@@ -24,7 +24,7 @@ export class DashboardSummeryComponent {
 
 
     clientId: string = 'UMPB1q9XBKudOD58cyVYACOp22a5OjgY';
-    private baseApiUrl = 'https://smsapigee-test.apigee.net/v6/insurance/';
+    private baseApiUrl = 'https://smsapigee-test.apigee.net/v7/insurance/';
 
     private conversion:number;
 

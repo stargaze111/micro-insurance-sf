@@ -13,7 +13,7 @@ import {Router} from '@angular/router'
 @Injectable()
 export class GAuthenticationService{
 
-    private _tokenUrl = 'https://smsapigee-test.apigee.net/v6/insurance/staff/gauth/login';
+    private _tokenUrl = 'https://smsapigee-test.apigee.net/v7/insurance/staff/gauth/login';
 
     loggedIn : boolean = false;
     constructor(private http:Http, private router: Router){
